@@ -3,22 +3,28 @@
 #include<stdlib.h>
 
 int main (){
-FILE *data;
+FILE *inicial;
+FILE *final; 
 int n=5,i;
-float rt,r1,r2;
+float rt,r1,r2,m,t,h;
 float posicion[n],velocidad[n];
-data = fopen("datos.txt","r");
-fscanf(data,"%f %f %f\n",&rt,&r1,&r2);
+inicial = fopen("inicial.txt","r");
+fscanf(inicial,"%f %f %f\n",&rt,&r1,&r2);
+fscanf(inicial,"%f",&m);
+fscanf(inicial,"%f",&t);
+fscanf(inicial,"%f",&h);
 for (i=0;i<n;i++) {
-fscanf(data,"%f\n",&posicion[i]);
-fscanf(data,"%f \n",&velocidad[i]);
+fscanf(inicial,"%f\n",&posicion[i]);
+fscanf(inicial,"%f \n",&velocidad[i]);
 }
-fclose(data);
-printf("%f %f %f\n",rt,r1,r2);
+fclose(inicial);
+final = fopen("final.txt","w");
+fprintf(final,"%f %f %f\n",rt,r1,r2);
 for (i=0;i<n;i++) {
-printf("%f \n",posicion[i]);
-printf("%f\n",velocidad[i]);
+fprintf(final,"%f \n",posicion[i]);
+fprintf(final,"%f\n",velocidad[i]);
 }
+fclose (final);
 
 
 
