@@ -5,8 +5,4 @@
 void fuerza(); {
 int n=385,i;
 float fx[t],fy[t],fz[t];
-
-
-
-
 }

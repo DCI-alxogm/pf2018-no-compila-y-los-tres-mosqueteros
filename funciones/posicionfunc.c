@@ -4,7 +4,7 @@
 #include<stdlib.h>
 void posiciones() {
 FILE *posiciones; 
-int n=1155,i;
+int n=770,i;
 float x[n],y[n],z[n];
 posiciones = fopen("posiciones.txt","r");
 for (i=0;i<n;i++) {

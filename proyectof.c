@@ -1,30 +1,29 @@
 #include<stdio.h>
 #include<math.h>
 #include<stdlib.h>
-
-int main (){
+#include<proyectfmake.h>
+int proyectfmain (){
 FILE *inicial;
-FILE *final; 
 int n=5,i;
 float rt,r1,r2,m,t,h;
-float posicion[n],velocidad[n];
 inicial = fopen("inicial.txt","r");
 fscanf(inicial,"%f %f %f\n",&rt,&r1,&r2);
 fscanf(inicial,"%f",&m);
 fscanf(inicial,"%f",&t);
 fscanf(inicial,"%f",&h);
-for (i=0;i<n;i++) {
-fscanf(inicial,"%f\n",&posicion[i]);
-fscanf(inicial,"%f \n",&velocidad[i]);
-}
 fclose(inicial);
-final = fopen("final.txt","w");
-fprintf(final,"%f %f %f\n",rt,r1,r2);
+
+posiciones();
+velocidades();
+
 for (i=0;i<n;i++) {
-fprintf(final,"%f \n",posicion[i]);
-fprintf(final,"%f\n",velocidad[i]);
+x[i+h]=x[i]+h*vx[i]+((1/2)*fx*(pow(h,2)));
+vx[i+h]=vx[i]+((1/2)*(fx[i]+fx[i+h]))*h);
+y[i+h]=y[i]+h*vy[i]+((1/2)*fy*(pow(h,2)));
+vy[i+h]=vy[i]+((1/2)*(fy[i]+fy[i+h]))*h);
+z[i+h]=z[i]+h*vz[i]+((1/2)*fz*(pow(h,2)));
+vz[i+h]=vz[i]+((1/2)*(fz[i]+fz[i+h]))*h);
 }
-fclose (final);
 
 
 
