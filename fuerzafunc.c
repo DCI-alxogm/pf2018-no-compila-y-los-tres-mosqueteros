@@ -3,8 +3,8 @@
 #include<math.h>
 #include<stdlib.h>
 
-void fuerza(); 
+float fuerza(r,x)
 {
-	int n=770,i;
-	float fx[t],fy[t],fz[t];
+	f=4*3.14159265359*3.14159265359*x/(r*r*r);
+return f;q
 }

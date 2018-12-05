@@ -1,31 +1,10 @@
 #include<proyectfmake.h>
 #include<stdio.h>
 #include<math.h>
-#include<stdlib.h>
 
-void posiciones() 
+float posiciones(xp,h,vxp,fxp)
 {
-
-	FILE *posiciones; 
-
-	int n=770,i;
-	float x[n],y[n],z[n];
-
-	posiciones = fopen("posiciones.txt","r");
-
-for (i=0;i<n;i++) 
-	{
-		fscanf(posiciones,"%f\n",&x[i]);
-		fscanf(posiciones,"%f\n",&y[i]);
-		fscanf(posiciones,"%f\n",&z[i]);
-	}
-
-fclose(posiciones);
-
-for (i=0;i<n;i++) 
-	{
-		printf("%f\n",x[i]);
-		printf("%f\n",y[i]);
-		printf("%f\n",z[i]);
-}
+float x;
+		x=xp+(h*vxp)+((1/2)*fxp*(pow(h,2)));
+return x;
 }

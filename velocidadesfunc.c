@@ -2,21 +2,12 @@
 #include<stdio.h>
 #include<math.h>
 #include<stdlib.h>
-
-void velocidades();
+float velocidades(vxp,fx,h)
 {
-	FILE *velocidades; 
 
-	int n=770,i;
 	float vx[n],vy[n],vz[n];
 
-	velocidades = fopen("velocidades.txt","r");
+	vx=vxp+((1/2)*(fx))*h);
 
-for (i=0;i<n;i++)
-	{
-		fscanf(velocidades,"%f\n",&vx[i]);
-		fscanf(velocidades,"%f\n",&vy[i]);
-		fscanf(velocidades,"%f\n",&vz[i]);
-	}
-fclose(velocidades);
+return vx;
 }
