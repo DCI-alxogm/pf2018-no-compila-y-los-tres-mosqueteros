@@ -10,11 +10,12 @@ int main()
 	FILE *posiciones;
 	FILE *velocidades; 
 
-	int n=770,i,j;
-	float rt,r1,r2,m,t,h,d,dx,dy,dz;
+	int n=770,i,j,t,c=0,cp=1;
+	float m,h,ch,d,dx,dy,dz;
 	float x[n],y[n],z[n],vx[n],vy[n],vz[n],fx[n],fy[n],fz[n];
 	float xp[n],yp[n],zp[n],vxp[n],vyp[n],vzp[n],fxp[n],fyp[n],fzp[n];
         float fxt,fyt,fzt;
+	char nombre[20];
 
 	posiciones = fopen("posiciones.txt","r");
 
@@ -38,11 +39,9 @@ for (i=0;i<n;i++)
 fclose(velocidades);
 
 	inicial = fopen("inicial.txt","r");
-
-	fscanf(inicial,"%f %f %f\n",&rt,&r1,&r2);
-	fscanf(inicial,"%f",&m);
-	fscanf(inicial,"%f",&t);
-	fscanf(inicial,"%f",&h);
+	fscanf(inicial,"%f\n",&m);
+	fscanf(inicial,"%i\n",&t);
+	fscanf(inicial,"%f\n",&h);
 
 	fclose(inicial);
 
@@ -52,6 +51,8 @@ for (i=0;i<n;i++)
 	fyp[i]=0;
 	fzp[i]=0;
 	}
+ch=t/h;
+while (c<ch){
 
 for (j=0;j<n;j++)
 	{
@@ -64,9 +65,9 @@ for (j=0;j<n;j++)
 			dz=distancia(zp[j],zp[i]);
 			d=distanciat(dx,dy,dz);
 			
-			fx[i]=fuerza(d,dx);
-			fy[i]=fuerza(d,dy);
-			fz[i]=fuerza(d,dz);
+			fx[i]=fuerza(d,dx,m);
+			fy[i]=fuerza(d,dy,m);
+			fz[i]=fuerza(d,dz,m);
 			}
 		}
 	for (i=0;i<n;i++)
@@ -97,6 +98,19 @@ for (j=0;j<n;j++)
 	fyp[i]=fyt;
 	fzp[i]=fzt;
 	}
-
+		sprintf(nombre, "%dposiciones.txt",cp);
+			FILE *df;
+		if (c%5000 == 0)
+	{
+	df=fopen(nombre,"w");
+	cp++;
+	}
+	for(i=0;i<n;i++)
+		{
+		fprintf(df,"%f %f %f",xp[i],yp[i],zp[i]);
+		}
+	fclose(df);
+	c++;
+}
 return 0;
 }
