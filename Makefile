@@ -1,4 +1,4 @@
-proyectfmake: fuerzafunc.c posicionfunc.c velocidadesfunc.c proyectfmain.c 
-	gcc   proyectfmain.c posicionfunc.c velocidadesfunc.c fuerzafunc.c -o proyectfomain.o -lm -I ./libreria
+proyectfmake: fuerzafunc.c posicionesfunc.c velocidadesfunc.c proyectof.c 
+	gcc   proyectof.c posicionesfunc.c velocidadesfunc.c fuerzafunc.c -o proyectof.o -lm -I ./libreria
 clean: 
-	rm proyectf.o
+	rm proyectof.o
