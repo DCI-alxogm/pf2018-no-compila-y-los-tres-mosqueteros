@@ -52,13 +52,13 @@ for (i=0;i<n;i++)
 	fzp[i]=0;
 	}
 ch=t/h;
-while (c<ch){
+while (c<1000000){
 
 for (j=0;j<n;j++)
 	{
 	for (i=0;i<n;i++)
 		{
-		while(i!=j) 
+		if(i!=j) 
 			{
 			dx=distancia(xp[j],xp[i]);
 			dy=distancia(yp[j],yp[i]);
@@ -107,7 +107,7 @@ for (j=0;j<n;j++)
 	}
 	for(i=0;i<n;i++)
 		{
-		fprintf(df,"%f %f %f",xp[i],yp[i],zp[i]);
+		fprintf(df,"%f\t%f\t%f\n",xp[i],yp[i],zp[i]);
 		}
 	fclose(df);
 	c++;
