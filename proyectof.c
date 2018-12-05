@@ -1,9 +1,9 @@
+#include"proyectfmake.h"
 #include<stdio.h>
 #include<math.h>
 #include<stdlib.h>
-#include<proyectfmake.h>
 
-int proyectfmain()
+int main()
 {
 
 	FILE *inicial;
@@ -14,6 +14,7 @@ int proyectfmain()
 	float rt,r1,r2,m,t,h,d,dx,dy,dz;
 	float x[n],y[n],z[n],vx[n],vy[n],vz[n],fx[n],fy[n],fz[n];
 	float xp[n],yp[n],zp[n],vxp[n],vyp[n],vzp[n],fxp[n],fyp[n],fzp[n];
+        float fxt,fyt,fzt;
 
 	posiciones = fopen("posiciones.txt","r");
 
@@ -75,14 +76,14 @@ for (j=0;j<n;j++)
 		fzt=fzt+fz[i];
 		}
 	
-	x[i]=posiciones(xp[i],h,vxp[i],fxt[i]);
-	vx[i]=velocidades(vxp,fxt,h);
+	x[i]=posicion(xp[i],h,vxp[i],fxt);
+	vx[i]=velocidad(vxp[i],fxt,h);
 
-	y[i]=posiciones(yp[i],h,vyp[i],fyt[i]);
-	vy[i]=velocidades(vyp,fyt,h);
+	y[i]=posicion(yp[i],h,vyp[i],fyt);
+	vy[i]=velocidad(vyp[i],fyt,h);
 
-	z[i]=posiciones(zp[i],h,vzp[i],fzt[i]);
-	vz[i]=velocidades(vzp,fzt,h);
+	z[i]=posicion(zp[i],h,vzp[i],fzt);
+	vz[i]=velocidad(vzp[i],fzt,h);
 
 	xp[i]=x[i];
 	yp[i]=y[i];
