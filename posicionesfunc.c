@@ -21,4 +21,11 @@ for (i=0;i<n;i++)
 	}
 
 fclose(posiciones);
+
+for (i=0;i<n;i++) 
+	{
+		printf("%f\n",x[i]);
+		printf("%f\n",y[i]);
+		printf("%f\n",z[i]);
+}
 }
