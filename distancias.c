@@ -6,7 +6,7 @@
 float distancia(float x1,float x2)
 {
 float x;
-	x=x1-x2;
+	x=x2-x1;
 return x;
 }
 float distanciat(float dx,float dy,float dz)
