@@ -3,11 +3,8 @@
 #include<math.h>
 #include<stdlib.h>
 
-float velocidad(float vxp,float fxp,float fx,float h)
+double velocidad(double vxp,double fxp,double fx,double h)
 {
-	float vx;
 
-	vx=vxp+((1/2)*(fxp+fx)*h);
-
-return vx;
+return vxp+((1/2)*(fxp+fx)*h);
 }

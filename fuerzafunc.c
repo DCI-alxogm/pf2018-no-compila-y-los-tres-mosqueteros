@@ -3,11 +3,16 @@
 #include<math.h>
 #include<stdlib.h>
 
-float fuerza(float r,float x,float m)
-{ 
-        float f;
+double fuerza(double r,double x,double m)
+{
 
-	f=(4300*x*m*m)/(r*r*r);
+if(r==0) 
+	{
+	return 0;
+	}
 
-return f;
+else 
+	{
+	return (4300*x*m*m)/(r*r*r);
+	}
 }

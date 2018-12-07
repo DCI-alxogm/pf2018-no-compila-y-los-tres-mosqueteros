@@ -4,10 +4,7 @@
 #include<stdlib.h>
 
 
-float posicion(float xp,float h,float vxp,float fxp)
+double posicion(double xp,double h,double vxp,double fxp)
 {
-	float x;
-	x=xp+(h*vxp)+((1/2)*fxp*(pow(h,2)));
-
-return x;
+	return xp+(h*vxp)+((1/2)*fxp*(pow(h,2)));
 }
