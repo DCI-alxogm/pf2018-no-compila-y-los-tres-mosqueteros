@@ -1,4 +1,6 @@
-float distancia(x1,x2)
-float fuerza(r,x)
-float velocidades (vxp,fx,h)
-float posiciones(xp,h,vxp,fxp)
+
+float distancia(float x1,float x2);
+float fuerza(float r,float x,float m);
+float velocidad(float vxp,float fxp,float fx,float h);
+float posicion(float xp,float h,float vxp,float fxp);
+float distanciat(float dx,float dy,float dz);

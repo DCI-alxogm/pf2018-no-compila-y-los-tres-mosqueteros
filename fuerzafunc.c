@@ -3,8 +3,11 @@
 #include<math.h>
 #include<stdlib.h>
 
-float fuerza(r,x)
-{
-	f=4*3.14159265359*3.14159265359*x/(r*r*r);
-return f;q
+float fuerza(float r,float x,float m)
+{ 
+        float f;
+
+	f=(4300*x*m*m)/(r*r*r);
+
+return f;
 }

@@ -1,13 +1,13 @@
-#include<proyectfmake.h>
+#include"proyectfmake.h"
 #include<stdio.h>
 #include<math.h>
 #include<stdlib.h>
-float velocidades(vxp,fx,h)
+
+float velocidad(float vxp,float fxp,float fx,float h)
 {
+	float vx;
 
-	float vx[n],vy[n],vz[n];
-
-	vx=vxp+((1/2)*(fx))*h);
+	vx=vxp+((1/2)*(fxp+fx)*h);
 
 return vx;
 }
