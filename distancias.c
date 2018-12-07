@@ -10,6 +10,6 @@ return x;
 float distanciat(dx,dy,dz)
 {
 float r;
-	r=sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2))
+	r=sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2));
 return r;
 }
