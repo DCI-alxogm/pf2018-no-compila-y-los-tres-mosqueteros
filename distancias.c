@@ -5,13 +5,18 @@
 
 float distancia(float x1,float x2)
 {
-float x;
+	float x;
+
 	x=x2-x1;
+
 return x;
 }
+
 float distanciat(float dx,float dy,float dz)
 {
-float r;
+	float r;
+
 	r=sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2));
+
 return r;
 }
