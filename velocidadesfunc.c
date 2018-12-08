@@ -11,7 +11,7 @@
     return vxp+((1/2)*(fxp+fxt)*h);
   }
 
-// vxp = velocidad anterior a la interacción
+// vxp = velocidad anterior a la interacción.
 // fxp = fuerza anterior a la interacción.
 // fxt = fuerza tutal de la particula despues de cada interacción.
 // h = el paso de cada interacción. 
