@@ -96,7 +96,7 @@ while (c<ch)
 
 	sprintf(nombre,"%dvelocidades.txt",cp);
 
-		if (c%(ch/1000) == 0)
+		if (c%(ch/500) == 0)
 		{
 		v=fopen(nombre,"w");
 
@@ -109,7 +109,7 @@ while (c<ch)
 
 		sprintf(nombre, "%dposiciones.txt",cp);
 
-		if (c%(ch/1000) == 0)
+		if (c%(ch/500) == 0)
 		{
 		cp++;
 		p=fopen(nombre,"w");
