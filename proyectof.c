@@ -44,7 +44,10 @@ fclose(velocidades);
 ch=t/h;
 while (c<ch)
 	{
+	if (c%1000==0)
+	{
 	printf("%i\n",c);
+	}
 	for (j=0;j<n;j++)
 		{
 		for (i=0;i<n;i++)
@@ -93,7 +96,7 @@ while (c<ch)
 
 	sprintf(nombre,"%dvelocidades.txt",cp);
 
-		if (c%(ch/200) == 0)
+		if (c%(ch/1000) == 0)
 		{
 		v=fopen(nombre,"w");
 
@@ -106,7 +109,7 @@ while (c<ch)
 
 		sprintf(nombre, "%dposiciones.txt",cp);
 
-		if (c%(ch/200) == 0)
+		if (c%(ch/1000) == 0)
 		{
 		cp++;
 		p=fopen(nombre,"w");
