@@ -3,7 +3,7 @@
 #include<math.h>
 #include<stdlib.h>
 
-double fuerza(double r,double x,double m)
+long double fuerza(long double r,long double x,long double m)
 {
 
 if(r==0) 

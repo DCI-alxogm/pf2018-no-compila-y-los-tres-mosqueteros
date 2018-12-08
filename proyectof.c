@@ -10,19 +10,20 @@ int main()
 	FILE *posiciones;
 	FILE *velocidades;
 	FILE *p;
+	FILE *v;
 
 	int n=408,i,j,t,c=0,cp=1,ch;
-	double m,h,d,dx,dy,dz;
-	double x[n],y[n],z[n],vx[n],vy[n],vz[n],fx[n],fy[n],fz[n];
-	double xp[n],yp[n],zp[n],vxp[n],vyp[n],vzp[n],fxp[n],fyp[n],fzp[n];
-        double fxt=0,fyt=0,fzt=0;
+	long double m,h,d,dx,dy,dz;
+	long double x[n],y[n],z[n],vx,vy,vz,fx[n],fy[n],fz[n];
+	long double xp[n],yp[n],zp[n],vxp[n],vyp[n],vzp[n],fxp[n],fyp[n],fzp[n];
+        long double fxt=0,fyt=0,fzt=0;
 	char nombre[20];
 
 	posiciones = fopen("posiciones.txt","r");
 
 for (i=0;i<n;i++) 
 	{
-		fscanf(posiciones,"%lf %lf %lf",&xp[i],&yp[i],&zp[i]);
+		fscanf(posiciones,"%Lf %Lf %Lf",&xp[i],&yp[i],&zp[i]);
 	}
 fclose(posiciones);
 
@@ -30,19 +31,20 @@ fclose(posiciones);
 
 for (i=0;i<n;i++)
 	{
-		fscanf(velocidades,"%lf %lf %lf",&vxp[i],&vyp[i],&vzp[i]);
+		fscanf(velocidades,"%Lf %Lf %Lf",&vxp[i],&vyp[i],&vzp[i]);
 	}
 fclose(velocidades);
 
 	inicial = fopen("inicial.txt","r");
 
-	fscanf(inicial,"%lf %i %lf",&m,&t,&h);
+	fscanf(inicial,"%Lf %i %Lf",&m,&t,&h);
 
 	fclose(inicial);
 
 ch=t/h;
 while (c<ch)
 	{
+	printf("%i\n",c);
 	for (j=0;j<n;j++)
 		{
 		for (i=0;i<n;i++)
@@ -51,7 +53,6 @@ while (c<ch)
 				dy=distancia(yp[j],yp[i]);
 				dz=distancia(zp[j],zp[i]);
 				d=distanciat(dx,dy,dz);
-				printf("%i-%i-%i\n",c,j,i);
 
 				fx[i]=fuerza(d,dx,m);
 				fy[i]=fuerza(d,dy,m);
@@ -65,21 +66,21 @@ while (c<ch)
 			}
 
 		x[j]=posicion(xp[j],h,vxp[j],fxt);
-		vx[j]=velocidad(vxp[j],fxp[j],fxt,h);
+		vx=(vxp[j]+(((fxp[j]+fxt)*h)/2));
 
 		y[j]=posicion(yp[j],h,vyp[j],fyt);
-		vy[j]=velocidad(vyp[j],fyp[j],fyt,h);
+		vy=(vyp[j]+(((fyp[j]+fyt)*h)/2));
 
 		z[j]=posicion(zp[j],h,vzp[j],fzt);
-		vz[j]=velocidad(vzp[j],fzp[j],fzt,h);
+		vz=(vzp[j]+(((fzp[j]+fzt)*h)/2));
 
 		xp[j]=x[j];
 		yp[j]=y[j];
 		zp[j]=z[j];
 		
-		vxp[j]=vx[j];
-		vyp[j]=vy[j];
-		vzp[j]=vz[j];
+		vxp[j]=vx;
+		vyp[j]=vy;
+		vzp[j]=vz;
 
 		fxp[j]=fxt;
 		fyp[j]=fyt;
@@ -88,6 +89,19 @@ while (c<ch)
 		fxt=0;
 		fyt=0;
 		fzt=0;
+		}
+
+	sprintf(nombre,"%dvelocidades.txt",cp);
+
+		if (c%(ch/200) == 0)
+		{
+		v=fopen(nombre,"w");
+
+		for(i=0;i<n;i++)
+			{
+		fprintf(v,"%Lf\t%Lf\t%Lf\n",vxp[i],vyp[i],vzp[i]);
+		}
+		fclose(v);
 		}
 
 		sprintf(nombre, "%dposiciones.txt",cp);
@@ -99,7 +113,7 @@ while (c<ch)
 
 		for(i=0;i<n;i++)
 			{
-			fprintf(p,"%lf\t%lf\t%lf\n",xp[i],yp[i],zp[i]);
+			fprintf(p,"%Lf\t%Lf\t%Lf\n",xp[i],yp[i],zp[i]);
 			}
 		fclose(p);
 		}
